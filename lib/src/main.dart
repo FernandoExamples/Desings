@@ -2,6 +2,7 @@ import 'package:desings/src/pages/basic_page.dart';
 import 'package:desings/src/pages/buttons_page.dart';
 import 'package:desings/src/pages/main_page.dart';
 import 'package:desings/src/pages/mytries/login_page.dart';
+import 'package:desings/src/pages/mytries/menu_page.dart';
 import 'package:desings/src/pages/mytries/recipies_page.dart';
 import 'package:desings/src/pages/scroll_page.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Desings',
       debugShowCheckedModeBanner: false,
       
-      initialRoute: 'main',
+      initialRoute: 'menu',
       routes: {
         'main' : (context) => MainPage(),
         'basic' : (context) => BasicPage(),
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         'buttons' : (context) => ButtonsPage(),
         'recipies' : (context) => RecipiesPage(),
         'login' : (context) => LoginPage(),
+        'menu' : (context) => MenuPage(),
       },
       
     );

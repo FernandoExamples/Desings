@@ -4,15 +4,15 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: <Widget>[
-          _backgroundImage(),
-          _createTitle(),
-          _body(context),
-          // _circleAvatar(context), //no funciona en todas las pantallas
-        ],      
-      ),
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: <Widget>[
+            _backgroundImage(),
+            _createTitle(),
+            _body(context),
+            // _circleAvatar(context), //no funciona en todas las pantallas
+          ],      
+        ),
     );
   }
 
@@ -121,12 +121,16 @@ class LoginPage extends StatelessWidget {
 
   Widget _circleAvatar(BuildContext context){
     var screen = MediaQuery.of(context).size;
+    var dpi = MediaQuery.of(context).devicePixelRatio;
+
+    print('heith ${screen.height}');
+    print('dpi $dpi');
 
     return Positioned(
-      top: screen.height * 0.23,
-      left: screen.width * 0.4,
+      top: 190.0,
+      left: screen.width * 0.45,
       child: CircleAvatar(
-        radius: 40.0,
+        radius: screen.height * 0.0422,
         child: Icon(Icons.person, size: 40.0),
         backgroundColor: Color.fromRGBO(22, 29, 79, 1.0),
       ),
