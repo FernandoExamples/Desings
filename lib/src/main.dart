@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Desings',
       debugShowCheckedModeBanner: false,
       
-      initialRoute: 'menu',
+      initialRoute: 'main',
       routes: {
         'main' : (context) => MainPage(),
         'basic' : (context) => BasicPage(),

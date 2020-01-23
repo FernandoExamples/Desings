@@ -10,7 +10,6 @@ class LoginPage extends StatelessWidget {
             _backgroundImage(),
             _createTitle(),
             _body(context),
-            // _circleAvatar(context), //no funciona en todas las pantallas
           ],      
         ),
     );
@@ -50,15 +49,18 @@ class LoginPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          child: _createLoginCard(),
+          child: _createLoginCard(context),
           padding: EdgeInsets.all(20.0),
+          color: Colors.black45,
         )
       ],
     );
   }
 
-  Widget _createLoginCard(){
-    return Card(
+  Widget _createLoginCard(BuildContext context){
+    var screen = MediaQuery.of(context).size;
+
+    var card = Card(      
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       elevation: 10.0,
       child: Container(
@@ -94,6 +96,21 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+
+    return Stack(
+      alignment: AlignmentDirectional.topCenter,
+      children: <Widget>[
+      
+        Container(
+           padding: EdgeInsets.only(top: 25.0), //top: screen.height * 0.03
+           child: card,
+           color: Colors.blue,
+        ),
+
+       _circleAvatar(context),
+
+      ],
+    );
   }
 
   Widget _createTextField(IconData icon, String prompt){
@@ -126,14 +143,10 @@ class LoginPage extends StatelessWidget {
     print('heith ${screen.height}');
     print('dpi $dpi');
 
-    return Positioned(
-      top: 190.0,
-      left: screen.width * 0.45,
-      child: CircleAvatar(
-        radius: screen.height * 0.0422,
+    return CircleAvatar(
+        radius: 33.0, //screen.height * 0.0422
         child: Icon(Icons.person, size: 40.0),
         backgroundColor: Color.fromRGBO(22, 29, 79, 1.0),
-      ),
-    );
+      );
   }
 }
